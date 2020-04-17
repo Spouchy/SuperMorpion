@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
 
 public class JeuxController {
 
-	PlateauMorpion plateauMorpion = new PlateauMorpion(1);
+	PlateauMorpion plateauMorpion = new PlateauMorpion();
 	
 	@FXML
 	private Text tourMessage;
@@ -23,9 +23,6 @@ public class JeuxController {
 		if (plateauMorpion.siCaseVide(i, j)) {
 			String idEventString = ((Node) event.getSource()).getId();
 			String idImageString = "img_"+idEventString;
-			@FXML
-			
-			
 			
 			plateauMorpion.placerPion(i, j);
 		}
