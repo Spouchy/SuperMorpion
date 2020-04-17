@@ -24,14 +24,14 @@
                         <Font name="Comic Sans MS Bold" size="51.0" />
                      </font>
                   </Label>
-                  <HBox layoutX="137.0" layoutY="205.0" prefHeight="32.0" prefWidth="305.0">
+                  <HBox layoutX="127.0" layoutY="205.0" prefHeight="32.0" prefWidth="423.0">
                      <children>
-                        <Label prefHeight="32.0" prefWidth="198.0" text="Nombre de joueur :">
+                        <Label maxHeight="32.0" maxWidth="211.0" minHeight="32.0" minWidth="205.0" prefHeight="32.0" prefWidth="211.0" text="Nombre de joueur :">
                            <font>
-                              <Font size="22.0" />
+                              <Font name="Comic Sans MS" size="22.0" />
                            </font>
                         </Label>
-                          <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" selected="true" style="-fx-text-fill: black; -fx-border-color: black;" text="1" textAlignment="CENTER">
+                          <ToggleButton fx:id="nbjoueur1" maxHeight="32.0" maxWidth="50.0" minWidth="32.0" onAction="#choixNbJoueur" prefHeight="32.0" prefWidth="50.0" selected="true" style="-fx-text-fill: black; -fx-border-color: black;" text="1" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -39,21 +39,21 @@
                               <ToggleGroup fx:id="ChoixNbJoueur" />
                            </toggleGroup>
                           </ToggleButton>
-                          <ToggleButton minWidth="31.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="2" textAlignment="CENTER" toggleGroup="$ChoixNbJoueur">
+                          <ToggleButton fx:id="nbJoueur2" maxHeight="32.0" maxWidth="50.0" minWidth="31.0" onAction="#choixNbJoueur" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="2" textAlignment="CENTER" toggleGroup="$ChoixNbJoueur">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                           </ToggleButton>
                      </children>
                   </HBox>
-                  <HBox layoutX="112.0" layoutY="271.0" prefHeight="32.0" prefWidth="441.0">
+                  <HBox layoutX="87.0" layoutY="271.0" prefHeight="32.0" prefWidth="462.0">
                      <children>
-                        <Label prefHeight="32.0" prefWidth="223.0" text="Difficulté de la partie :">
+                        <Label maxHeight="32.0" maxWidth="251.0" minHeight="32.0" minWidth="246.0" prefHeight="32.0" prefWidth="251.0" text="Difficulté de la partie :">
                            <font>
-                              <Font size="22.0" />
+                              <Font name="Comic Sans MS" size="22.0" />
                            </font>
                         </Label>
-                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" selected="true" style="-fx-text-fill: black; -fx-border-color: black;" text="1" textAlignment="CENTER">
+                        <ToggleButton maxHeight="32.0" maxWidth="50.0" minWidth="32.0" prefHeight="32.0" prefWidth="50.0" selected="true" style="-fx-text-fill: black; -fx-border-color: black;" text="1" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -61,17 +61,17 @@
                               <ToggleGroup fx:id="ChoixDifficulte" />
                            </toggleGroup>
                         </ToggleButton>
-                        <ToggleButton minWidth="31.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="2" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
+                        <ToggleButton maxHeight="32.0" maxWidth="50.0" minWidth="31.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="2" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </ToggleButton>
-                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="3" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
+                        <ToggleButton maxHeight="32.0" maxWidth="50.0" minWidth="32.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="3" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </ToggleButton>
-                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="4" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
+                        <ToggleButton maxHeight="32.0" maxWidth="50.0" minWidth="32.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="4" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
