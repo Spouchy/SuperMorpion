@@ -87,12 +87,15 @@
                         <Font size="1.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" onDragDetected="#launchGame" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/play-button.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="button_exit" layoutX="534.0" layoutY="170.0" mnemonicParsing="false" onAction="#closeApplicationButton" prefHeight="100.0" prefWidth="100.0" scaleX="0.7" scaleY="0.7" style="-fx-background-color: none;">
                      <font>
