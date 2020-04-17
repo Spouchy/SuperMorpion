@@ -1,8 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane maxHeight="650.0" maxWidth="650.0" minHeight="650.0" minWidth="650.0" prefHeight="650.0" prefWidth="650.0">
+         <top>
+            <Pane prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                     <graphic>
+                        <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/png/back-navigational-arrow-button-pointing-to-left.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text layoutX="200.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A toi de jouer !" textAlignment="CENTER" />
+                  <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/png/information.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                     <graphic>
+                        <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/png/arrow-blue-circle.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                     <graphic>
+                        <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/png/deleteRouge.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </bottom>
+         <center>
+            <GridPane alignment="CENTER" gridLinesVisible="true" maxWidth="360.0" minHeight="0.0" minWidth="0.0" prefHeight="360.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;" GridPane.columnIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="120.0" maxWidth="120.0" minHeight="120.0" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
 </AnchorPane>
-
