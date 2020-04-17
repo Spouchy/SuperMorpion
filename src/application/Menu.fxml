@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
    <children>
       <VBox maxHeight="650.0" maxWidth="650.0" minHeight="650.0" minWidth="650.0" prefHeight="650.0" prefWidth="650.0">
          <children>
@@ -22,71 +24,80 @@
                         <Font name="Comic Sans MS Bold" size="51.0" />
                      </font>
                   </Label>
-                  <Label layoutX="135.0" layoutY="211.0" text="Nombre de joueur :">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <ToggleButtonGroup layoutX="339.0" layoutY="209.0" selectionType="SINGLE" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
-                      <toggles>
-                          <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" selected="true" text="1" textAlignment="CENTER">
+                  <HBox layoutX="137.0" layoutY="205.0" prefHeight="32.0" prefWidth="305.0">
+                     <children>
+                        <Label prefHeight="32.0" prefWidth="198.0" text="Nombre de joueur :">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                          <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" selected="true" style="-fx-text-fill: black; -fx-border-color: black;" text="1" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="ChoixNbJoueur" />
+                           </toggleGroup>
+                          </ToggleButton>
+                          <ToggleButton minWidth="31.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="2" textAlignment="CENTER" toggleGroup="$ChoixNbJoueur">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                           </ToggleButton>
-                          <ToggleButton minWidth="31.0" prefHeight="32.0" prefWidth="50.0" text="2" textAlignment="CENTER">
+                     </children>
+                  </HBox>
+                  <HBox layoutX="112.0" layoutY="271.0" prefHeight="32.0" prefWidth="441.0">
+                     <children>
+                        <Label prefHeight="32.0" prefWidth="223.0" text="Difficulté de la partie :">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" selected="true" style="-fx-text-fill: black; -fx-border-color: black;" text="1" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
-                          </ToggleButton>
-                      </toggles>
-                  </ToggleButtonGroup>
-                  <Label layoutX="112.0" layoutY="278.0" text="Difficulté de la partie :">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <ToggleButtonGroup layoutX="339.0" layoutY="278.0" selectionType="SINGLE" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
-                     <toggles>
-                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" selected="true" text="1" textAlignment="CENTER">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="ChoixDifficulte" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton minWidth="31.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="2" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </ToggleButton>
-                        <ToggleButton minWidth="31.0" prefHeight="32.0" prefWidth="50.0" text="2" textAlignment="CENTER">
+                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="3" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </ToggleButton>
-                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" text="3" textAlignment="CENTER">
+                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" style="-fx-text-fill: black; -fx-border-color: black;" text="4" textAlignment="CENTER" toggleGroup="$ChoixDifficulte">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </ToggleButton>
-                        <ToggleButton minWidth="32.0" prefHeight="32.0" prefWidth="50.0" text="4" textAlignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </ToggleButton>
-                     </toggles>
-                  </ToggleButtonGroup>
+                     </children>
+                  </HBox>
                </children>
             </Pane>
             <Pane prefHeight="318.0" prefWidth="650.0">
                <children>
-                  <Button fx:id="button_play" accessibleRole="INCREMENT_BUTTON" layoutX="242.0" layoutY="2.0" mnemonicParsing="false" scaleX="0.7" scaleY="0.7" style="-fx-background-color: none;">
+                  <Button fx:id="button_play" accessibleRole="INCREMENT_BUTTON" layoutX="242.0" layoutY="2.0" mnemonicParsing="false" onAction="#launchGame" scaleX="0.7" scaleY="0.7" style="-fx-background-color: none;">
                      <font>
                         <Font size="1.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" onDragDetected="#launchGame" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/play-button.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                   </Button>
-                  <Button layoutX="534.0" layoutY="170.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" scaleX="0.7" scaleY="0.7" style="-fx-background-color: none;">
+                  <Button fx:id="button_exit" layoutX="534.0" layoutY="170.0" mnemonicParsing="false" onAction="#closeApplicationButton" prefHeight="100.0" prefWidth="100.0" scaleX="0.7" scaleY="0.7" style="-fx-background-color: none;">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -97,6 +108,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                   </Button>
                </children>
             </Pane>
