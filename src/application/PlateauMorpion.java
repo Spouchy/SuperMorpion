@@ -11,6 +11,7 @@ import java.util.spi.LocaleNameProvider;
 import javafx.scene.image.Image;
 
 public class PlateauMorpion {
+	private Fichier fichier;
 	private int n;
 	private static int NB_JOUEUR = 1;
 	private static int DIFFICULTE = 0;
@@ -29,6 +30,7 @@ public class PlateauMorpion {
 	public PlateauMorpion() {
 		siJeuxEnCours = true;
 		n = 3;
+		fichier = new Fichier("data.txt");
 		
 		Random random = new Random();
 		tourJoueur = random.nextInt(2) + 1;
@@ -226,19 +228,9 @@ public class PlateauMorpion {
 				}
 			}
 			
-			PrintWriter writer;
-			try {
-				writer = new PrintWriter("data.txt", "UTF-8");
-				System.out.println(intArrayToString(input)+" \t"+intArrayToString(output));
-				writer.println(intArrayToString(input)+" \t"+intArrayToString(output));
-				writer.close();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			String ligne = intArrayToString(input)+" \t"+intArrayToString(output);
+			fichier.ecrireLigne(ligne);
+						
 		}
 	}
 	
