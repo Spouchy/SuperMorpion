@@ -104,9 +104,15 @@ public class PlateauMorpion {
 	}
 	
 	public boolean siFini() {
-		// TODO
+		for (int h = 0; h < n; h++) {
+			for (int v = 0; v < n; v++) {
+				if (matricePlateau[h][v] == 0) {
+					return false;
+				}
+			}
+		}
 		
-		return false;
+		return true;
 	}
 	
 	public boolean siCaseVide(int i,int j) {
@@ -223,8 +229,8 @@ public class PlateauMorpion {
 			PrintWriter writer;
 			try {
 				writer = new PrintWriter("data.txt", "UTF-8");
-				System.out.println(intArrayToString(input)+" \t"+intArrayToString(input));
-				writer.println(intArrayToString(input)+" \t"+intArrayToString(input));
+				System.out.println(intArrayToString(input)+" \t"+intArrayToString(output));
+				writer.println(intArrayToString(input)+" \t"+intArrayToString(output));
 				writer.close();
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
