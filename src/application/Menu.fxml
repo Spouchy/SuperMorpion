@@ -47,7 +47,7 @@
                           </ToggleButton>
                      </children>
                   </HBox>
-                  <HBox layoutX="87.0" layoutY="271.0" prefHeight="32.0" prefWidth="462.0">
+                  <HBox fx:id="hBoxDifficulte" layoutX="87.0" layoutY="271.0" prefHeight="32.0" prefWidth="462.0">
                      <children>
                         <Label maxHeight="32.0" maxWidth="251.0" minHeight="32.0" minWidth="246.0" prefHeight="32.0" prefWidth="251.0" text="Difficulté de la partie :">
                            <font>
@@ -95,7 +95,7 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
                   <Button fx:id="button_exit" layoutX="534.0" layoutY="170.0" mnemonicParsing="false" onAction="#closeApplicationButton" prefHeight="100.0" prefWidth="100.0" scaleX="0.7" scaleY="0.7" style="-fx-background-color: none;">
@@ -110,7 +110,7 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
                   <CheckBox fx:id="ModeTraining" layoutX="28.0" layoutY="229.0" mnemonicParsing="false" onAction="#bloqueUnJoueur" text="Mode Training" />
