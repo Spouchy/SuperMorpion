@@ -11,8 +11,8 @@ public class PlateauMorpion {
 	private static int NB_JOUEUR = 1;
 	private static int DIFFICULTE = 0;
 	public boolean siJeuxEnCours;
-	private String imgJoueur1 = "file:src/application/images/png/deleteRouge.png";
-	private String imgJoueur2 = "file:src/application/images/png/delete.png";
+	private String imgJoueur1 = "file:src/application/images/deleteRouge.png";
+	private String imgJoueur2 = "file:src/application/images/delete.png";
 	private int tourJoueur = 1;
 	private int[][] matricePlateau =
 	    {
