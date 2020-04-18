@@ -98,7 +98,6 @@ public class MenuController {
 		}
 		else {
 			nbJoueur1.setDisable(false);
-			hBoxDifficulte.setVisible(true);
 			PlateauMorpion.SET_IN_TRAINING(false);
 		}
 	}
