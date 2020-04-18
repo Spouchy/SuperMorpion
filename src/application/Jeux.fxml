@@ -31,7 +31,7 @@
                      <graphic>
                         <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/png/information.png" />
+                              <Image url="@images/information.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -40,7 +40,7 @@
                      <children>
                         <ImageView fx:id="tourImage" fitHeight="30.0" fitWidth="30.0" layoutX="15.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/png/arrow-curving-around-a-circle.png" />
+                              <Image url="@images/arrow-curving-around-a-circle.png" />
                            </image>
                         </ImageView>
                         <Text fx:id="tourMessage" layoutX="60.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A toi de jouer !" textAlignment="CENTER" textOrigin="TOP">
@@ -60,7 +60,7 @@
                      <graphic>
                         <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/png/arrow-blue-circle.png" />
+                              <Image url="@images/arrow-blue-circle.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -69,7 +69,7 @@
                      <graphic>
                         <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/png/deleteRouge.png" />
+                              <Image url="@images/deleteRouge.png" />
                            </image>
                         </ImageView>
                      </graphic>
