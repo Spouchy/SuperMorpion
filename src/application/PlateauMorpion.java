@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.spi.LocaleNameProvider;
 
 import javafx.scene.image.Image;
 
@@ -117,6 +118,7 @@ public class PlateauMorpion {
 	}
 	
 	public void placerPion(int i,int j) {
+		writeData(i, j);
 		matricePlateau[i][j] = tourJoueur;
 	}
 	
@@ -197,7 +199,7 @@ public class PlateauMorpion {
 	}
 	
 	public void writeData(int i, int j) {
-		if (IN_TRAINING) {
+		if (IN_TRAINING && tourJoueur == 1) {
 			int output[] = {0,0,0,0,0,0,0,0,0};
 			
 			int index = n * i + j;
@@ -220,7 +222,8 @@ public class PlateauMorpion {
 			
 			PrintWriter writer;
 			try {
-				writer = new PrintWriter("donnee/data.txt", "UTF-8");
+				writer = new PrintWriter("data.txt", "UTF-8");
+				System.out.println(intArrayToString(input)+" \t"+intArrayToString(input));
 				writer.println(intArrayToString(input)+" \t"+intArrayToString(input));
 				writer.close();
 			} catch (FileNotFoundException e) {
@@ -238,7 +241,12 @@ public class PlateauMorpion {
         String data = "";
         
         for(int i=0; i < array.length;i++) {
-            data += array[i]+",";
+        	if (i != array.length - 1) {
+        		data += array[i]+",";
+        	} else {
+        		data += array[i];
+			}
+            
         }
         
         return data;
