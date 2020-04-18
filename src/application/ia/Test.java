@@ -18,7 +18,7 @@ public class Test {
 
 	public static void test(){
 		try {
-			int[] layers = new int[]{ 2, 5, 1 };
+			int[] layers = new int[]{ 9, 20, 9 };
 			
 			double error = 0.0 ;
 			MultiLayerPerceptron net = new MultiLayerPerceptron(layers, 0.1, new SigmoidalTransferFunction());
