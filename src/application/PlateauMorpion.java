@@ -1,6 +1,9 @@
 package application;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -193,6 +196,52 @@ public class PlateauMorpion {
 		return IN_TRAINING;
 	}
 	
+	public void writeData(int i, int j) {
+		if (IN_TRAINING) {
+			int output[] = {0,0,0,0,0,0,0,0,0};
+			
+			int index = n * i + j;
+			output[index] = 1;
+			
+			int input[] = {0,0,0,0,0,0,0,0,0};
+			
+			int secondIndex = 0;
+			for (int h = 0; h < n; h++) {
+				for (int v = 0; v < n; v++) {
+					if (matricePlateau[h][v] == 2) {
+						input[secondIndex] = -1;
+					} else {
+						input[secondIndex] = matricePlateau[h][v];
+					}
+					
+					secondIndex ++;
+				}
+			}
+			
+			PrintWriter writer;
+			try {
+				writer = new PrintWriter("donnee/data.txt", "UTF-8");
+				writer.println(intArrayToString(input)+" \t"+intArrayToString(input));
+				writer.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	
+	public String intArrayToString(int[] array)
+    {
+        String data = "";
+        
+        for(int i=0; i < array.length;i++) {
+            data += array[i]+",";
+        }
+        
+        return data;
+    }
 	
 }
