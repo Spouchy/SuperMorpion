@@ -28,18 +28,11 @@ public class MenuController {
 	
 	public void choixNbJoueur(ActionEvent event) {
 		String idEventString = ((Node) event.getSource()).getId();
-		switch (idEventString) {
-		case "1":
-			PlateauMorpion.SET_NB_JOUEUR(1);
-			break;
 		
-		case "2":
+		if (idEventString.equals("nbJoueur2")) {
 			PlateauMorpion.SET_NB_JOUEUR(2);
-			break;
-
-		default:
+		} else {
 			PlateauMorpion.SET_NB_JOUEUR(1);
-			break;
 		}
 	}
 	
