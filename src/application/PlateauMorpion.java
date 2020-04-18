@@ -147,6 +147,10 @@ public class PlateauMorpion {
 		NB_JOUEUR = nbJoueur;
 	}
 	
+	public static int GET_NB_JOUEUR() {
+		return NB_JOUEUR;
+	}
+	
 	public String messageTourJoueur() {
 		return "Joueur ["+ tourJoueur + "] à toi de jouer !";
 	}
@@ -188,5 +192,7 @@ public class PlateauMorpion {
 	public static boolean IS_IN_TRAINING() {
 		return IN_TRAINING;
 	}
+	
+	
 	
 }
