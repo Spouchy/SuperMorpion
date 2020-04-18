@@ -20,15 +20,15 @@ public class MenuController {
 	@FXML
 	private ToggleButton nbJoueur2;
 	@FXML
-	private CheckBox training;
+	private CheckBox ModeTraining;
 	
 	@FXML
     public void initialize() {
 		if (PlateauMorpion.IS_IN_TRAINING() == true) {
-			training.setSelected(true);
+			ModeTraining.setSelected(true);
 			disbledJoueurAndCocheTraining();
 		}
-		if (PlateauMorpion.GET_NB_JOUEUR("2")) {
+		if (PlateauMorpion.GET_NB_JOUEUR() == 2) {
 			nbJoueur2.setSelected(true);
 		}
     }

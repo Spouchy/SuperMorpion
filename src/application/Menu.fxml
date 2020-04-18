@@ -113,7 +113,7 @@
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Button>
-                  <CheckBox fx:id="training" layoutX="28.0" layoutY="229.0" mnemonicParsing="false" onAction="#bloqueUnJoueur" text="Mode Training" />
+                  <CheckBox fx:id="ModeTraining" layoutX="28.0" layoutY="229.0" mnemonicParsing="false" onAction="#bloqueUnJoueur" text="Mode Training" />
                </children>
             </Pane>
          </children>
