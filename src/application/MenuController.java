@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -21,6 +22,9 @@ public class MenuController {
 	private ToggleButton nbJoueur2;
 	@FXML
 	private CheckBox ModeTraining;
+	@FXML
+	private HBox hBoxDifficulte;
+
 	
 	@FXML
     public void initialize() {
@@ -30,6 +34,7 @@ public class MenuController {
 		}
 		if (PlateauMorpion.GET_NB_JOUEUR() == 2) {
 			nbJoueur2.setSelected(true);
+			hBoxDifficulte.setVisible(false);
 		}
     }
 	
@@ -52,8 +57,10 @@ public class MenuController {
 		
 		if (idEventString.equals("nbJoueur2")) {
 			PlateauMorpion.SET_NB_JOUEUR(2);
+			hBoxDifficulte.setVisible(false);
 		} else {
 			PlateauMorpion.SET_NB_JOUEUR(1);
+			hBoxDifficulte.setVisible(true);
 		}
 	}
 	
@@ -98,6 +105,7 @@ public class MenuController {
 	public void disbledJoueurAndCocheTraining() {
 		nbJoueur1.setDisable(true);
 		nbJoueur2.setSelected(true);
+		hBoxDifficulte.setVisible(false);
 		PlateauMorpion.SET_NB_JOUEUR(2);
 		PlateauMorpion.SET_IN_TRAINING(true);
 	}
