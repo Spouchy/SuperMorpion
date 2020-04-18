@@ -229,6 +229,7 @@ public class PlateauMorpion {
 			}
 			
 			String ligne = intArrayToString(input)+" \t"+intArrayToString(output);
+			System.out.println(ligne);
 			fichier.ecrireLigne(ligne);
 						
 		}
