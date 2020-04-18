@@ -10,6 +10,7 @@ public class PlateauMorpion {
 	private int n;
 	private static int NB_JOUEUR = 1;
 	private static int DIFFICULTE = 0;
+	private static boolean IN_TRAINING = false;
 	public boolean siJeuxEnCours;
 	private String imgJoueur1 = "file:src/application/images/deleteRouge.png";
 	private String imgJoueur2 = "file:src/application/images/delete.png";
@@ -178,6 +179,14 @@ public class PlateauMorpion {
 		result[0] = i;
 		result[1] = j;
 		return result;
+	}
+	
+	public static void SET_IN_TRAINING(boolean inTraining) {
+		IN_TRAINING = inTraining;
+	}
+	
+	public static boolean IS_IN_TRAINING() {
+		return IN_TRAINING;
 	}
 	
 }

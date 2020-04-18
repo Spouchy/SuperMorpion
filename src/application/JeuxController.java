@@ -18,6 +18,7 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -29,6 +30,8 @@ public class JeuxController {
 	private Text tourMessage;
 	@FXML
 	private ImageView tourImage;
+	@FXML
+	private Pane windowTraining;
 	
 	@FXML
 	private ImageView img_zeroZero;
@@ -53,6 +56,10 @@ public class JeuxController {
     public void initialize() {
         setupTour();
         jeuxAutomatique();
+        
+        if (!PlateauMorpion.IS_IN_TRAINING()) {
+        	windowTraining.setVisible(false);
+        }
     }
 	
 	public void backMenu(ActionEvent event) throws IOException {
