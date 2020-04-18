@@ -32,6 +32,8 @@ public class JeuxController {
 	private ImageView tourImage;
 	@FXML
 	private Pane windowTraining;
+	@FXML
+	private Text messageTraining;
 	
 	@FXML
 	private ImageView img_zeroZero;
@@ -99,7 +101,15 @@ public class JeuxController {
 		}
 	}
 	
+	private void enregistrementDonneeIA(int i, int j) {
+		if (PlateauMorpion.IS_IN_TRAINING()) {
+			messageTraining.setText(plateauMorpion.writeData(i, j));
+			
+		}
+	}
+	
 	private void placerPionLogique(int i, int j) {
+		enregistrementDonneeIA(i, j);
 		plateauMorpion.placerPion(i, j);
 		refraichirAffichage(i, j);
 		
@@ -113,6 +123,10 @@ public class JeuxController {
 			// Setup prochain tour
 			setupTour();
 		}
+	}
+	
+	public void deleteTrainingData(ActionEvent event) {
+		messageTraining.setText(plateauMorpion.supprimerTraining());
 	}
 	
 	public void restartGame(ActionEvent event) {

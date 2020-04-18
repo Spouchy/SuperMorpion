@@ -126,7 +126,6 @@ public class PlateauMorpion {
 	}
 	
 	public void placerPion(int i,int j) {
-		writeData(i, j);
 		matricePlateau[i][j] = tourJoueur;
 	}
 	
@@ -206,7 +205,7 @@ public class PlateauMorpion {
 		return IN_TRAINING;
 	}
 	
-	public void writeData(int i, int j) {
+	public String writeData(int i, int j) {
 		if (IN_TRAINING && tourJoueur == 1) {
 			int output[] = {0,0,0,0,0,0,0,0,0};
 			
@@ -231,8 +230,11 @@ public class PlateauMorpion {
 			String ligne = intArrayToString(input)+" \t"+intArrayToString(output)+"\n";
 			System.out.println(ligne);
 			fichier.ecrireLigne(ligne);
+			
+			return "Les données :\n\t"+ligne+"\n sont sauvergardé";
 						
 		}
+		return null;
 	}
 	
 	public String intArrayToString(int[] array)
@@ -250,5 +252,11 @@ public class PlateauMorpion {
         
         return data;
     }
+
+	public String supprimerTraining() {
+		fichier.delete();
+		return "Fichier " +fichier.getName()+ " à bien était supprimer";
+		
+	}
 	
 }
