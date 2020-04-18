@@ -28,7 +28,7 @@ public class MenuController {
 			training.setSelected(true);
 			disbledJoueurAndCocheTraining();
 		}
-		if (PlateauMorpion.GET_NB_JOUEUR("2")) {
+		if (PlateauMorpion.GET_NB_JOUEUR() == 2) {
 			nbJoueur2.setSelected(true);
 		}
     }
