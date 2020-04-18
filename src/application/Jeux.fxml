@@ -22,7 +22,7 @@
                      <graphic>
                         <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/png/back-navigational-arrow-button-pointing-to-left.png" />
+                              <Image url="@images/back-navigational-arrow-button-pointing-to-left.png" />
                            </image>
                         </ImageView>
                      </graphic>
