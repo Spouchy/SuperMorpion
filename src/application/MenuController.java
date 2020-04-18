@@ -19,6 +19,19 @@ public class MenuController {
 	private ToggleButton nbJoueur1;
 	@FXML
 	private ToggleButton nbJoueur2;
+	@FXML
+	private CheckBox training;
+	
+	@FXML
+    public void initialize() {
+		if (PlateauMorpion.IS_IN_TRAINING() == true) {
+			training.setSelected(true);
+			disbledJoueurAndCocheTraining();
+		}
+		if (PlateauMorpion.GET_NB_JOUEUR("2")) {
+			nbJoueur2.setSelected(true);
+		}
+    }
 	
 	public void closeApplicationButton(ActionEvent event) {
 		System.exit(0);
@@ -74,15 +87,19 @@ public class MenuController {
 	public void bloqueUnJoueur(ActionEvent event) {
 		CheckBox checkBoxTraining = ((CheckBox) event.getSource());
 		if (checkBoxTraining.isSelected()) {
-			nbJoueur1.setDisable(true);
-			nbJoueur2.setSelected(true);
-			PlateauMorpion.SET_NB_JOUEUR(2);
-			PlateauMorpion.SET_IN_TRAINING(true);
+			disbledJoueurAndCocheTraining();
 		}
 		else {
 			nbJoueur1.setDisable(false);
 			PlateauMorpion.SET_IN_TRAINING(false);
 		}
+	}
+	
+	public void disbledJoueurAndCocheTraining() {
+		nbJoueur1.setDisable(true);
+		nbJoueur2.setSelected(true);
+		PlateauMorpion.SET_NB_JOUEUR(2);
+		PlateauMorpion.SET_IN_TRAINING(true);
 	}
 	
 }
