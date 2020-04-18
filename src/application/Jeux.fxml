@@ -65,6 +65,11 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Pane fx:id="windowTraining" layoutX="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Information training" textOrigin="TOP" />
+                     </children>
+                  </Pane>
                   <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
                      <graphic>
                         <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
