@@ -18,7 +18,7 @@
          <top>
             <Pane prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                  <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
                      <graphic>
                         <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -27,16 +27,6 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <ImageView fx:id="tourImage" fitHeight="30.0" fitWidth="30.0" layoutX="210.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/png/arrow-curving-around-a-circle.png" />
-                     </image>
-                  </ImageView>
-                  <Text fx:id="tourMessage" layoutX="250.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A toi de jouer !" textAlignment="CENTER">
-                     <font>
-                        <Font size="32.0" />
-                     </font>
-                  </Text>
                   <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none;">
                      <graphic>
                         <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
@@ -46,13 +36,27 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Pane layoutX="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0">
+                     <children>
+                        <ImageView fx:id="tourImage" fitHeight="30.0" fitWidth="30.0" layoutX="15.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/png/arrow-curving-around-a-circle.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="tourMessage" layoutX="60.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A toi de jouer !" textAlignment="CENTER" textOrigin="TOP">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </top>
          <bottom>
             <Pane prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                  <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#restartGame" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
                      <graphic>
                         <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -61,7 +65,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                  <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
                      <graphic>
                         <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>

@@ -1,11 +1,15 @@
 package application;
 
 import java.awt.Label;
+import java.io.IOException;
 import java.time.Year;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,6 +19,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class JeuxController {
 
@@ -44,24 +49,88 @@ public class JeuxController {
 	@FXML
 	private ImageView img_deuxDeux;
 	
+	@FXML
+    public void initialize() {
+        setupTour();
+        jeuxAutomatique();
+    }
 	
+	public void backMenu(ActionEvent event) throws IOException {
+	    Parent menu_page = FXMLLoader.load(getClass().getResource("/application/Menu.fxml"));
+        Scene scene_menu = new Scene(menu_page);
+        Stage menu_Stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        menu_Stage.setScene(scene_menu);
+        menu_Stage.show();
+	}
+	
+	public void closeApplication(ActionEvent event) {
+		System.exit(0);
+	}
 	
 	public void clickOnCase(ActionEvent event) {
-		int i = getPosition(event)[0];
-		int j = getPosition(event)[1];
-		
-		if (plateauMorpion.siCaseVide(i, j)) {
-			plateauMorpion.placerPion(i, j);
-			refraichirAffichage(i, j);
-			if (plateauMorpion.siVictoire(i, j)) {
-				// TODO
-			} else if (plateauMorpion.siFini()) {
-				// TODO
+		if (plateauMorpion.siJeuxEnCours) {
+			int i = getPosition(event)[0];
+			int j = getPosition(event)[1];
+			
+			if (plateauMorpion.siCaseVide(i, j)) {
+				placerPionLogique(i, j);			
 			}
-			plateauMorpion.joueurSuivant();
-			Image image = new Image(plateauMorpion.getImagePion());
-			tourImage.setImage(image);
+			
+			jeuxAutomatique(); 
 		}
+	}
+	
+	public void jeuxAutomatique() {
+		if (plateauMorpion.siTourBot()) {
+			int position[] = plateauMorpion.tourBot();
+			
+			int i = position[0];
+			int j = position[1];
+			
+			placerPionLogique(i, j);
+			
+		}
+	}
+	
+	private void placerPionLogique(int i, int j) {
+		plateauMorpion.placerPion(i, j);
+		refraichirAffichage(i, j);
+		
+		if (plateauMorpion.siVictoire(i, j)) {
+			tourMessage.setText(plateauMorpion.messageVictoire());
+		} else if (plateauMorpion.siFini()) {
+			tourMessage.setText(plateauMorpion.messagePartieFini());
+		} else {
+			plateauMorpion.joueurSuivant();
+			
+			// Setup prochain tour
+			setupTour();
+		}
+	}
+	
+	public void restartGame(ActionEvent event) {
+		plateauMorpion = new PlateauMorpion();
+		netoyerAffichage();
+		
+		initialize();
+	}
+	
+	public void setupTour() {
+		tourMessage.setText(plateauMorpion.messageTourJoueur());
+		Image image = new Image(plateauMorpion.getImagePion());
+		tourImage.setImage(image);
+	}
+	
+	public void netoyerAffichage() {
+		img_zeroZero.setImage(null);
+		img_zeroUn.setImage(null);
+		img_zeroDeux.setImage(null);
+		img_unZero.setImage(null);
+		img_unUn.setImage(null);
+		img_unDeux.setImage(null);
+		img_deuxZero.setImage(null);
+		img_deuxUn.setImage(null);
+		img_deuxDeux.setImage(null);
 	}
 	
 	public void refraichirAffichage(int i,int j) {
