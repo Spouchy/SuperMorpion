@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.spi.LocaleNameProvider;
 
+import application.ia.Test;
 import javafx.scene.image.Image;
 
 public class PlateauMorpion {
@@ -175,6 +176,9 @@ public class PlateauMorpion {
 	}
 
 	public int[] tourBot() {
+		double[] input = getInput();
+		
+		int[] position = Test.test(fichier, input);
 		int result[] = {0,0};
 		
 		int i = 0;
@@ -205,29 +209,36 @@ public class PlateauMorpion {
 		return IN_TRAINING;
 	}
 	
+	public double[] getInput() {
+		double input[] = {0,0,0,0,0,0,0,0,0};
+		
+		int secondIndex = 0;
+		for (int h = 0; h < n; h++) {
+			for (int v = 0; v < n; v++) {
+				if (matricePlateau[h][v] != tourJoueur && matricePlateau[h][v] != 0) {
+					input[secondIndex] = -1;
+				} else if (matricePlateau[h][v] == tourJoueur) {
+					input[secondIndex] = 1;
+				}
+				
+				secondIndex ++;
+			}
+		}
+		
+		return input;
+	}
+	
 	public String writeData(int i, int j) {
-		if (IN_TRAINING && tourJoueur == 1) {
-			int output[] = {0,0,0,0,0,0,0,0,0};
+		if (IN_TRAINING) {
+			double output[] = {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
 			
 			int index = n * i + j;
 			output[index] = 1;
 			
-			int input[] = {0,0,0,0,0,0,0,0,0};
+			double[] input = getInput();
 			
-			int secondIndex = 0;
-			for (int h = 0; h < n; h++) {
-				for (int v = 0; v < n; v++) {
-					if (matricePlateau[h][v] == 2) {
-						input[secondIndex] = -1;
-					} else {
-						input[secondIndex] = matricePlateau[h][v];
-					}
-					
-					secondIndex ++;
-				}
-			}
 			
-			String ligne = intArrayToString(input)+" \t"+intArrayToString(output)+"\n";
+			String ligne = Outil.doubleArrayToString(input)+"\t"+ Outil.doubleArrayToString(output)+"\n";
 			System.out.println(ligne);
 			fichier.ecrireLigne(ligne);
 			
@@ -236,22 +247,6 @@ public class PlateauMorpion {
 		}
 		return null;
 	}
-	
-	public String intArrayToString(int[] array)
-    {
-        String data = "";
-        
-        for(int i=0; i < array.length;i++) {
-        	if (i != array.length - 1) {
-        		data += array[i]+",";
-        	} else {
-        		data += array[i];
-			}
-            
-        }
-        
-        return data;
-    }
 
 	public String supprimerTraining() {
 		fichier.delete();

@@ -1,13 +1,17 @@
 package application.ia;
 
+import java.awt.Desktop.Action;
+import java.io.File;
 //
 import java.util.HashMap;
+
+import application.Fichier;
 
 public class Test {
 
 	public static void main(String[] args) {
 		try {
-			test();
+			//test();
 		} 
 		catch (Exception e) {
 			System.out.println("Test.main()");
@@ -16,46 +20,54 @@ public class Test {
 		}
 	}
 
-	public static void test(){
+	public static int[] test(Fichier fichier,double[] coup){
 		try {
-			int[] layers = new int[]{ 9, 20, 9 };
+			int[] layers = new int[]{ 9, 5, 9 };
 			
 			double error = 0.0 ;
 			MultiLayerPerceptron net = new MultiLayerPerceptron(layers, 0.1, new SigmoidalTransferFunction());
-			double samples = 1000000000 ;
 
 			//TRAINING ...
-			for(int i = 0; i < samples; i++){
-				double[] inputs = new double[]{Math.round(Math.random()), Math.round(Math.random())};
-				double[] output = new double[1];
-
-				if((inputs[0] == 1.0) || (inputs[1] == 1.0))
-					output[0] = 1.0;
-				else
-					output[0] = 0.0;
-
+			
+			double[][][] training = fichier.lireInputOutput();
+			
+			if (training != null) {
 				
+				double[][] inputs = training[0];
+				double[][] outputs = training[1];
 				
-				error += net.backPropagate(inputs, output);
-
-				if ( i % 100000 == 0 ) System.out.println("Error at step "+i+" is "+ (error/(double)i));
+				for(int i = 0; i < inputs.length; i++){
+					
+					error += net.backPropagate(inputs[i], outputs[i]);
+	
+					if ( i % 100000 == 0 ) System.out.println("Error at step "+i+" is "+ (error/(double)i));
+				}
+				error /= inputs.length ;
+				System.out.println("Error is "+error);
+				//
+				System.out.println("Learning completed!");
+	
+				//TEST ...
+				
+				for (double d : coup) {
+					System.out.println("Action : "+ d);
+				}
+				
+				double[] coupOutput = net.forwardPropagation(coup);
+	
+				for (double d : coupOutput) {
+					System.out.println("Prediction : "+ d);
+				}
+			} else {
+				return null;
 			}
-			error /= samples ;
-			System.out.println("Error is "+error);
-			//
-			System.out.println("Learning completed!");
-
-			//TEST ...
-			double[] inputs = new double[]{0.0, 1.0};
-			double[] output = net.forwardPropagation(inputs);
-
-			System.out.println(inputs[0]+" or "+inputs[1]+" = "+Math.round(output[0])+" ("+output[0]+")");
 		} 
 		catch (Exception e) {
 			System.out.println("Test.test()");
 			e.printStackTrace();
 			System.exit(-1);
 		}
+		return null;
 	}
 
 	//CHAMPS ...
