@@ -1,6 +1,7 @@
 package application;
 
 
+import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.IOException;
 
 
@@ -48,7 +51,8 @@ public class MenuController {
         Scene scene_jeux = new Scene(jeux_page);
         Stage jeux_Stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         jeux_Stage.setScene(scene_jeux);
-        jeux_Stage.show();
+        jeux_Stage.show();       
+        
 	}
 	
 	

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.Year;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -185,7 +186,7 @@ public class JeuxController {
 		
 	public void fadePion(ImageView pion,boolean isLast) {
 		FadeTransition fadePion = new FadeTransition();
-		fadePion.setDuration(Duration.millis(500));
+		fadePion.setDuration(Duration.millis(1000));
 		fadePion.setNode(pion);
 		fadePion.setFromValue(1);
 		fadePion.setToValue(0);
@@ -198,6 +199,16 @@ public class JeuxController {
 		fadePion.play();	
 	}
 	
+	public void translatePion(ImageView pion) {
+		TranslateTransition translatePion = new TranslateTransition();
+		translatePion.setDuration(Duration.millis(50));
+		translatePion.setNode(pion);
+		translatePion.setToX(2);
+		translatePion.setToY(2);
+		translatePion.setAutoReverse(true);
+		translatePion.setCycleCount(20);
+		translatePion.play();	
+	}
 
 	
 	public void fadeIn(ImageView pion) {
