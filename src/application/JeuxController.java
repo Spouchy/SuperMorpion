@@ -1,9 +1,11 @@
 package application;
 
+import java.awt.Event;
 import java.awt.Label;
 import java.io.IOException;
 import java.time.Year;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class JeuxController {
 
@@ -131,7 +134,8 @@ public class JeuxController {
 	
 	public void restartGame(ActionEvent event) {
 		plateauMorpion = new PlateauMorpion();
-		netoyerAffichage();
+		fadeAllPion();
+		//netoyerAffichage();
 		
 		initialize();
 	}
@@ -152,6 +156,57 @@ public class JeuxController {
 		img_deuxZero.setImage(null);
 		img_deuxUn.setImage(null);
 		img_deuxDeux.setImage(null);
+	}
+	
+	public void fadeAllPion() {
+		fadePion(img_zeroZero, false);
+		fadePion(img_zeroUn, false);
+		fadePion(img_zeroDeux, false);
+		fadePion(img_unZero, false);
+		fadePion(img_unUn, false);
+		fadePion(img_unDeux, false);
+		fadePion(img_deuxZero, false);
+		fadePion(img_deuxUn, false);
+		fadePion(img_deuxDeux, true);
+	}
+	
+	public void fadeInAllPion() {
+		fadeIn(img_zeroZero);
+		fadeIn(img_zeroUn);
+		fadeIn(img_zeroDeux);
+		fadeIn(img_unZero);
+		fadeIn(img_unUn);
+		fadeIn(img_unDeux);
+		fadeIn(img_deuxZero);
+		fadeIn(img_deuxUn);
+		fadeIn(img_deuxDeux);
+	}
+	
+		
+	public void fadePion(ImageView pion,boolean isLast) {
+		FadeTransition fadePion = new FadeTransition();
+		fadePion.setDuration(Duration.millis(500));
+		fadePion.setNode(pion);
+		fadePion.setFromValue(1);
+		fadePion.setToValue(0);
+		if (isLast) {
+			fadePion.setOnFinished((ActionEvent event) -> {
+				netoyerAffichage();
+				fadeInAllPion();
+			});
+		}	
+		fadePion.play();	
+	}
+	
+
+	
+	public void fadeIn(ImageView pion) {
+		FadeTransition fadePion = new FadeTransition();
+		fadePion.setDuration(Duration.millis(10));
+		fadePion.setNode(pion);
+		fadePion.setFromValue(0);
+		fadePion.setToValue(1);
+		fadePion.play();
 	}
 	
 	public void refraichirAffichage(int i,int j) {
