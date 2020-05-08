@@ -60,19 +60,34 @@ public class JeuxController {
 	@FXML
     public void initialize() {
         setupTour();
-        jeuxAutomatique();
+        jeuxAutomatique(null);
         
         if (!PlateauMorpion.IS_IN_TRAINING()) {
         	windowTraining.setVisible(false);
         }
     }
 	
-	public void backMenu(ActionEvent event) throws IOException {
-	    Parent menu_page = FXMLLoader.load(getClass().getResource("/application/Menu.fxml"));
-        Scene scene_menu = new Scene(menu_page);
-        Stage menu_Stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        menu_Stage.setScene(scene_menu);
-        menu_Stage.show();
+	public void backMenu(ActionEvent event) {
+	    changeScene(event, "/application/Menu.fxml");
+	}
+	
+	public void changeScene(ActionEvent event, String path) {
+		Parent page;
+		try {
+			page = FXMLLoader.load(getClass().getResource(path));
+			Scene scene = new Scene(page);
+	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	        stage.setScene(scene);
+	        stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+	}
+	
+	public void goMessageFin(ActionEvent event) {
+		changeScene(event, "/application/FinJeux.fxml");
 	}
 	
 	public void closeApplication(ActionEvent event) {
@@ -85,21 +100,21 @@ public class JeuxController {
 			int j = getPosition(event)[1];
 			
 			if (plateauMorpion.siCaseVide(i, j)) {
-				placerPionLogique(i, j);			
+				placerPionLogique(event, i, j);			
 			}
 			
-			jeuxAutomatique(); 
+			jeuxAutomatique(event); 
 		}
 	}
 	
-	public void jeuxAutomatique() {
+	public void jeuxAutomatique(ActionEvent event) {
 		if (plateauMorpion.siTourBot()) {
 			int position[] = plateauMorpion.tourBot();
 			
 			int i = position[0];
 			int j = position[1];
 			
-			placerPionLogique(i, j);
+			placerPionLogique(event, i, j);
 			
 		}
 	}
@@ -111,15 +126,17 @@ public class JeuxController {
 		}
 	}
 	
-	private void placerPionLogique(int i, int j) {
+	private void placerPionLogique(ActionEvent event, int i, int j) {
 		enregistrementDonneeIA(i, j);
 		plateauMorpion.placerPion(i, j);
 		refraichirAffichage(i, j);
 		
 		if (plateauMorpion.siVictoire(i, j)) {
-			tourMessage.setText(plateauMorpion.messageVictoire());
+			PlateauMorpion.SET_MESSAGE_FIN(plateauMorpion.messageVictoire());
+			goMessageFin(event);
 		} else if (plateauMorpion.siFini()) {
-			tourMessage.setText(plateauMorpion.messagePartieFini());
+			PlateauMorpion.SET_MESSAGE_FIN(plateauMorpion.messagePartieFini());
+			goMessageFin(event);
 		} else {
 			plateauMorpion.joueurSuivant();
 			

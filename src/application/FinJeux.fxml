@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinJeuxController">
+   <children>
+      <BorderPane maxHeight="650.0" maxWidth="650.0" minHeight="650.0" minWidth="650.0" prefHeight="650.0" prefWidth="650.0">
+         <top>
+            <Pane prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                     <graphic>
+                        <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/back-navigational-arrow-button-pointing-to-left.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/information.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#restartGame" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                     <graphic>
+                        <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/arrow-blue-circle.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none; -fx-padding: 10 10 10 10;">
+                     <graphic>
+                        <ImageView fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/deleteRouge.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </bottom>
+         <center>
+            <Text fx:id="messageFin" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
