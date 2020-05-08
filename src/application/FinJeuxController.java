@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class FinJeuxController {
 	
@@ -19,6 +21,7 @@ public class FinJeuxController {
 	@FXML
     public void initialize() {
         messageFin.setText(PlateauMorpion.GET_MESSAGE_FIN());
+        scaleText(messageFin);
     }
 	
 	public void backMenu(ActionEvent event) {
@@ -45,5 +48,14 @@ public class FinJeuxController {
 	
 	public void restartGame(ActionEvent event) {
 		changeScene(event, "/application/Jeux.fxml");
+	}
+	
+	public void scaleText(Text message) {
+		ScaleTransition scaleMessage = new ScaleTransition(Duration.millis(300), message);
+		scaleMessage.setByX(0.1);
+		scaleMessage.setByY(0.1);
+		scaleMessage.setCycleCount(10);
+		scaleMessage.setAutoReverse(true);
+		scaleMessage.play();
 	}
 }
