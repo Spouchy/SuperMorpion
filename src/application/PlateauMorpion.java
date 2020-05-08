@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 
 public class PlateauMorpion {
 	private Fichier fichier;
+	private static String messageFin;
 	private int n;
 	private static int NB_JOUEUR = 1;
 	private static int DIFFICULTE = 0;
@@ -252,6 +253,14 @@ public class PlateauMorpion {
 		fichier.delete();
 		return "Fichier " +fichier.getName()+ " à bien était supprimer";
 		
+	}
+	
+	public static void SET_MESSAGE_FIN(String string) {
+		PlateauMorpion.messageFin = string;
+	}
+	
+	public static String GET_MESSAGE_FIN() {
+		return PlateauMorpion.messageFin;
 	}
 	
 }
