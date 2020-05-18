@@ -5,7 +5,10 @@ import java.io.File;
 //
 import java.util.HashMap;
 
+import javax.crypto.Cipher;
+
 import application.Fichier;
+import application.PlateauMorpion;
 
 public class Test {
 
@@ -20,7 +23,7 @@ public class Test {
 		}
 	}
 
-	public static int[] test(Fichier fichier,double[] coup){
+	public static int[] test(Fichier fichier,PlateauMorpion plateauMorpion){
 		try {
 			int[] layers = new int[]{ 9, 5, 9 };
 			
@@ -44,20 +47,42 @@ public class Test {
 				}
 				error /= inputs.length ;
 				System.out.println("Error is "+error);
-				//
-				System.out.println("Learning completed!");
-	
-				//TEST ...
 				
-				for (double d : coup) {
-					System.out.println("Action : "+ d);
-				}
+				double[] coup = plateauMorpion.getInput();
 				
 				double[] coupOutput = net.forwardPropagation(coup);
-	
+				
+				double max = 0.0;
+				
+				int indexMax = 0;
+				int i = 0;		
+				
+				int currentLine;
+				int currentCol;
+				
+				int maxLine;
+				int maxCol;
+				
 				for (double d : coupOutput) {
-					System.out.println("Prediction : "+ d);
+					currentLine = i/3;
+					currentCol = i%3;
+					
+					if (d > max && plateauMorpion.siCaseVide(currentLine, currentCol)) {
+						max = d;
+						indexMax = i;
+					}
+					i ++;
 				}
+				
+				int line = indexMax/3;
+				int col = indexMax%3;
+				
+				int coor[] = {line,col};
+				
+				return coor;
+				
+				
+	
 			} else {
 				return null;
 			}

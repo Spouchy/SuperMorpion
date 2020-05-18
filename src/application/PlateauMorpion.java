@@ -177,9 +177,14 @@ public class PlateauMorpion {
 	}
 
 	public int[] tourBot() {
-		double[] input = getInput();
+		// IA
+		int[] position = Test.test(fichier, this);
 		
-		int[] position = Test.test(fichier, input);
+		if (position != null && siCaseVide(position[0], position[1])) {
+			return position;
+		}
+		
+		// Si IA disfonctionne alors hazard
 		int result[] = {0,0};
 		
 		int i = 0;
