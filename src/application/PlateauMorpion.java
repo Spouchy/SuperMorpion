@@ -241,14 +241,13 @@ public class PlateauMorpion {
 			int index = n * i + j;
 			output[index] = 1;
 			
-			double[] input = getInput();
-			
+			double[] input = getInput();			
 			
 			String ligne = Outil.doubleArrayToString(input)+"\t"+ Outil.doubleArrayToString(output)+"\n";
 			System.out.println(ligne);
 			fichier.ecrireLigne(ligne);
 			
-			return "Les données :\n\t"+ligne+"\n sont sauvergardé";
+			return "Les données :\nEntrée: "+ Outil.doubleArrayToString(input)+"\nSortie: "+ Outil.doubleArrayToString(output)+"\n sont sauvergardé";
 						
 		}
 		return null;
