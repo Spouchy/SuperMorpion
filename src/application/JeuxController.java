@@ -216,6 +216,25 @@ public class JeuxController {
 		fadePion.play();	
 	}
 	
+	public void fadePionHelp(ImageView pion, String imageString) {
+		Image image = new Image(imageString);
+		pion.setImage(image);
+		pion.setVisible(false);
+		FadeTransition fadeInPion = new FadeTransition();
+		fadeInPion.setDuration(Duration.millis(1000));
+		fadeInPion.setNode(pion);
+		fadeInPion.setFromValue(0);
+		fadeInPion.setToValue(0.7);
+		FadeTransition fadePion = new FadeTransition();
+		fadePion.setDuration(Duration.millis(3000));
+		fadePion.setNode(pion);
+		fadePion.setFromValue(0.7);
+		fadePion.setToValue(0);
+		fadePion.play();	
+	}
+	
+	
+	
 	public void translatePion(ImageView pion) {
 		TranslateTransition translatePion = new TranslateTransition();
 		translatePion.setDuration(Duration.millis(50));
