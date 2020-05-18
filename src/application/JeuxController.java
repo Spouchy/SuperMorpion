@@ -164,33 +164,15 @@ public class JeuxController {
 		int i = coor[0];
 		int j = coor[1];
 		
-		String imageJoueurString = plateauMorpion.getImagePion();
-		
-		if (i == 0 ) {
-			if (j == 0) {
-				fadePionHelp(img_zeroZero, imageJoueurString);
-			} else if (j == 1) {
-				fadePionHelp(img_zeroUn, imageJoueurString);
-			} else if (j == 2) {
-				fadePionHelp(img_zeroDeux, imageJoueurString);
+		if (plateauMorpion.siJeuxEnCours) {
+			
+			if (plateauMorpion.siCaseVide(i, j)) {
+				placerPionLogique(event, i, j);			
 			}
-		} else if (i == 1 ) {
-			if (j == 0) {
-				fadePionHelp(img_unZero, imageJoueurString);
-			} else if (j == 1) {
-				fadePionHelp(img_unUn, imageJoueurString);
-			} else if (j == 2) {
-				fadePionHelp(img_unDeux, imageJoueurString);
-			}
-		} else if (i == 2 ) {
-			if (j == 0) {
-				fadePionHelp(img_deuxZero, imageJoueurString);
-			} else if (j == 1) {
-				fadePionHelp(img_deuxUn, imageJoueurString);
-			} else if (j == 2) {
-				fadePionHelp(img_deuxDeux, imageJoueurString);
-			}
+			
+			jeuxAutomatique(event); 
 		}
+		
 	}
 	
 	public void setupTour() {
