@@ -5,6 +5,7 @@ import java.awt.Label;
 import java.io.IOException;
 import java.time.Year;
 
+import application.ia.Test;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -156,6 +157,66 @@ public class JeuxController {
 		//netoyerAffichage();
 		
 		initialize();
+	}
+	
+	public void help(ActionEvent event) {
+		int[] coor = plateauMorpion.help();
+		int i = coor[0];
+		int j = coor[1];
+		
+		String imageJoueurString = plateauMorpion.getImagePion();
+		
+		if (i == 0 ) {
+			if (j == 0) {
+				if (plateauMorpion.siCaseVide(i, j)) {
+					fadePionHelp(img_zeroZero, imageJoueurString);
+				}
+			} else if (j == 1) {
+				if (plateauMorpion.getImagePion(i, j) != null) {
+					Image image = new Image(plateauMorpion.getImagePion(i, j));
+					img_zeroUn.setImage(image);
+				}
+			} else if (j == 2) {
+				if (plateauMorpion.getImagePion(i, j) != null) {
+					Image image = new Image(plateauMorpion.getImagePion(i, j));
+					img_zeroDeux.setImage(image);
+				}
+			}
+		} else if (i == 1 ) {
+			if (j == 0) {
+				if (plateauMorpion.getImagePion(i, j) != null) {
+					Image image = new Image(plateauMorpion.getImagePion(i, j));
+					img_unZero.setImage(image);
+				}
+			} else if (j == 1) {
+				if (plateauMorpion.getImagePion(i, j) != null) {
+					Image image = new Image(plateauMorpion.getImagePion(i, j));
+					img_unUn.setImage(image);
+				}
+			} else if (j == 2) {
+				if (plateauMorpion.getImagePion(i, j) != null) {
+					Image image = new Image(plateauMorpion.getImagePion(i, j));
+					img_unDeux.setImage(image);
+				}
+			}
+		} else if (i == 2 ) {
+			if (j == 0) {
+				if (plateauMorpion.getImagePion(i, j) != null) {
+					Image image = new Image(plateauMorpion.getImagePion(i, j));
+					img_deuxZero.setImage(image);
+				}
+			} else if (j == 1) {
+				if (plateauMorpion.getImagePion(i, j) != null) {
+					Image image = new Image(plateauMorpion.getImagePion(i, j));
+					img_deuxUn.setImage(image);
+				}
+			} else if (j == 2) {
+				if (plateauMorpion.getImagePion(i, j) != null) {
+					Image image = new Image(plateauMorpion.getImagePion(i, j));
+					img_deuxDeux.setImage(image);
+				}
+			}
+		}
 	}
 	
 	public void setupTour() {

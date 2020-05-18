@@ -267,5 +267,10 @@ public class PlateauMorpion {
 	public static String GET_MESSAGE_FIN() {
 		return PlateauMorpion.messageFin;
 	}
+
+	public int[] help() {
+		int[] coord = Test.test(fichier, this);
+		return coord;
+	}
 	
 }
