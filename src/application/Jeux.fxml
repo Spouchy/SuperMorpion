@@ -27,7 +27,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none;">
+                  <Button layoutX="500.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#help" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: none;">
                      <graphic>
                         <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>

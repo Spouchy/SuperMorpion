@@ -250,24 +250,7 @@ public class JeuxController {
 		}	
 		fadePion.play();	
 	}
-	
-	public void fadePionHelp(ImageView pion, String imageString) {
-		Image image = new Image(imageString);
-		pion.setImage(image);
-		pion.setVisible(false);
-		FadeTransition fadeInPion = new FadeTransition();
-		fadeInPion.setDuration(Duration.millis(1000));
-		fadeInPion.setNode(pion);
-		fadeInPion.setFromValue(0);
-		fadeInPion.setToValue(0.7);
-		FadeTransition fadePion = new FadeTransition();
-		fadePion.setDuration(Duration.millis(3000));
-		fadePion.setNode(pion);
-		fadePion.setFromValue(0.7);
-		fadePion.setToValue(0);
-		fadePion.play();	
-	}
-	
+		
 	
 	
 	public void translatePion(ImageView pion) {
@@ -296,16 +279,19 @@ public class JeuxController {
 		if (i == 0 ) {
 			if (j == 0) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_zeroZero.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_zeroZero.setImage(image);
 				}
 			} else if (j == 1) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_zeroUn.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_zeroUn.setImage(image);
 				}
 			} else if (j == 2) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_zeroDeux.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_zeroDeux.setImage(image);
 				}
@@ -313,16 +299,19 @@ public class JeuxController {
 		} else if (i == 1 ) {
 			if (j == 0) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_unZero.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_unZero.setImage(image);
 				}
 			} else if (j == 1) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_unUn.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_unUn.setImage(image);
 				}
 			} else if (j == 2) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_unDeux.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_unDeux.setImage(image);
 				}
@@ -330,16 +319,19 @@ public class JeuxController {
 		} else if (i == 2 ) {
 			if (j == 0) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_deuxZero.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_deuxZero.setImage(image);
 				}
 			} else if (j == 1) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_deuxUn.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_deuxUn.setImage(image);
 				}
 			} else if (j == 2) {
 				if (plateauMorpion.getImagePion(i, j) != null) {
+					img_deuxDeux.setImage(null);
 					Image image = new Image(plateauMorpion.getImagePion(i, j));
 					img_deuxDeux.setImage(image);
 				}
